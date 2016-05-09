@@ -5,6 +5,8 @@
  */
 package graphalgos;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author schoubey
@@ -14,7 +16,7 @@ public class GraphAlgos {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // TODO code application logic here
         Graph gr = new Graph();
         gr.addVertex("zero");
@@ -29,6 +31,10 @@ public class GraphAlgos {
         gr.addAdjacentVertex("three", "four");
         gr.addAdjacentVertex("two", "five");
         gr.printGraph();
+        ArrayList<Graph.BFSObject> bfsList = gr.BreadthFirstSearch("zero");
+        for(Graph.BFSObject bfs: bfsList) {
+            System.out.println(bfs.toString());
+        }
     }
     
 }
